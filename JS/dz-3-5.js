@@ -4,10 +4,10 @@ function getAllPropValues(array, prop) {
   let newArray = [];
 
   for (const product of array) {
-    const productValues = Object.values(product);
-
-    for (const value of productValues) {
-      newArray.push(value);
+    for (const key in product) {
+      if (key === prop) {
+        newArray.push(product[key]);
+      }
     }
   }
 
@@ -34,3 +34,11 @@ console.log(getAllPropValues(products, "quantity"));
 console.log(getAllPropValues(products, "category"));
 
 //  []
+
+//   for (const product of array) {
+//     const productValues = Object.values(product);
+
+//     for (const value of productValues) {
+//       newArray.push(value);
+//     }
+//   }
